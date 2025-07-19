@@ -46,26 +46,5 @@ opt.hidden = true            -- Allow switching buffers without saving
 opt.splitbelow = true        -- Horizontal splits open below
 opt.splitright = true        -- Vertical splits open to the right
 
-
--- Automatically change the working directory to the current buffer's file directory
-vim.api.nvim_create_autocmd("BufEnter", {
-  callback = function()
-    local filepath = vim.api.nvim_buf_get_name(0)
-    if filepath ~= "" then
-      local dir = vim.fn.fnamemodify(filepath, ":p:h")
-      vim.cmd("lcd " .. dir)  -- use "cd" instead of "lcd" for global dir change
-    end
-  end,
-})
-
--- Auto-remove trailing whitespace and tabs on file save
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function()
-    -- Remove trailing whitespace
-    vim.cmd([[%s/\s\+$//e]])
-  end,
-})
-
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
