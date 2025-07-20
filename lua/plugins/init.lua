@@ -37,12 +37,12 @@ return {
     },
 
     {
-      'stevearc/aerial.nvim',
+      "stevearc/aerial.nvim",
       opts = {},
       -- Optional dependencies
       dependencies = {
-         "nvim-treesitter/nvim-treesitter",
-         "nvim-tree/nvim-web-devicons"
+        "nvim-treesitter/nvim-treesitter",
+        "nvim-tree/nvim-web-devicons"
       },
       lazy = false,
       config = function()
@@ -76,4 +76,20 @@ return {
       vim.g.doge_enable_mappings = 0
     end,
   },
+
+  {
+    "lewis6991/gitsigns.nvim",
+    -- NOTE: part of the code in gisigns highlight.lua has been modified to
+    --       accommodate a transparent background.
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require("gitsigns").setup({
+        preview_config = {
+          border = "rounded",
+          style = "minimal",
+          relative = "cursor",
+        },
+      })
+    end,
+  }
 }
