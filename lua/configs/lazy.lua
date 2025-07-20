@@ -44,4 +44,9 @@ return {
       },
     },
   },
+
+  git = {
+    -- 🔁 force SSH instead of HTTPS
+    url_format = "git@github.com:%s.git",
+  },
 }
