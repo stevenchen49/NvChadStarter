@@ -66,4 +66,14 @@ return {
       end
     },
   },
+
+  {
+    "kkoomen/vim-doge",
+    run = ":call doge#install()",
+    ft = { "lua", "c", "cpp", "python" },
+    init = function()
+      -- must be set before plugin loads
+      vim.g.doge_enable_mappings = 0
+    end,
+  },
 }
