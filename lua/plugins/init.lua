@@ -151,4 +151,17 @@ return {
       "rcarriga/nvim-notify",
     }
   },
+
+  {
+    "nvim-telescope/telescope.nvim",
+    config = function()
+      require("telescope").setup({
+        defaults = {
+          layout_config = {
+            prompt_position = "bottom"
+          }
+        }
+      })
+    end,
+  }
 }
