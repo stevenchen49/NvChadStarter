@@ -6,7 +6,9 @@ vim.api.nvim_create_autocmd("BufEnter", {
     local filepath = vim.api.nvim_buf_get_name(0)
     if filepath ~= "" then
       local dir = vim.fn.fnamemodify(filepath, ":p:h")
-      vim.cmd("lcd " .. dir)  -- use "cd" instead of "lcd" for global dir change
+      if vim.loop.fs_stat(dir) then -- ✅ only if directory exists
+        vim.cmd("lcd " .. dir) -- use "cd" instead of "lcd" for global dir change
+      end
     end
   end,
 })
@@ -30,4 +32,3 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.expandtab = true
   end,
 })
-
