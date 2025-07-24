@@ -32,3 +32,18 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.expandtab = true
   end,
 })
+
+-- Autocommands to toggle smear cursor effect on entering/exiting cmdline or search modes
+vim.api.nvim_create_autocmd({"CmdlineEnter", "CmdlineLeave"}, {
+  callback = function()
+    local mode = vim.fn.mode()
+    -- Disable smear effect when entering cmdline or search modes
+    if mode == "c" or mode == "/" or mode == "?" then
+      -- Disable smear effect in cmdline or search mode
+      vim.cmd("SmearCursorToggle")
+    else
+      -- Re-enable smear effect in other modes
+      vim.cmd("SmearCursorToggle")
+    end
+  end,
+})
