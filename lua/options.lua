@@ -22,8 +22,8 @@ opt.virtualedit = "onemore"
 opt.showbreak = "↪ "         -- Symbol shown at the beginning of wrapped lines
 opt.list = true              -- Show hidden characters
 opt.listchars = {
-  tab = "▸ ",                -- Display tabs as ▸
-  trail = "·",               -- Display trailing spaces as ·
+  tab = "› ",                -- Display tabs as ›
+  trail = "•",               -- Display trailing spaces as •
   extends = "❯",             -- Show ❯ at the end of a long line
   precedes = "❮",            -- Show ❮ at the beginning of a truncated line
 }
